@@ -32,14 +32,13 @@ retry_event() {
 	fi
 }
 
-cd ~
-rm .git-credentials
-git config --global user.name "ariffjenong"
-git config --global user.email "arifbuditantodablekk@gmail.com"
-echo "$TOKEN" > ~/.git-credentials
-git config --global credential.helper store --file=~/.git-credentials
 cd ~/rom
 sleep 118m
+rm ~/.git-credentials ~/.gitconfig
+git config --global user.name "jihannova"
+git config --global user.email "jihanazzahranova@gmail.com"
+echo "$TOKEN" > ~/.git-credentials
+git config --global credential.helper store --file=~/.git-credentials
 #sleep 7191
 compiled_zip
 retry_event
