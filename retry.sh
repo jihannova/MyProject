@@ -33,7 +33,7 @@ retry_event() {
 }
 
 cd ~/rom
-sleep 46m
+sleep 60m
 #sleep 118m
 rm ~/.git-credentials ~/.gitconfig
 git config --global user.name "jihannova"
