@@ -8,7 +8,6 @@ sync () {
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
     cd hardware/nad/interfaces
     git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
-    cd ../../qcom-caf/common && git fetch https://github.com/ArrowOS/android_hardware_qcom-caf_common arrow-12.1 && git checkout FETCH_HEAD
 }
 
 build () {
@@ -64,7 +63,8 @@ push_vendor () {
 cd ~/rom
 ls -lh
 compile &
-sleep 114m
+sleep 40m
+#sleep 114m
 kill %1
 #push_kernel
 #push_device
