@@ -2,9 +2,10 @@
     
 sync () {
     cd ~/rom
-    repo init --depth=1 --no-repo-verify -u ${Nusantara} -b 13 -g default,-mips,-darwin,-notdefault
-    rclone copy znxtproject:NusantaraProject/manifest/13/nusantara.xml .repo/manifests/snippets -P
-    rclone copy znxtproject:NusantaraProject/manifest/13/local_nad.xml .repo/local_manifests -P
+    #repo init --depth=1 --no-repo-verify -u ${Nusantara} -b 13 -g default,-mips,-darwin,-notdefault
+    #rclone copy znxtproject:NusantaraProject/manifest/13/nusantara.xml .repo/manifests/snippets -P
+    #rclone copy znxtproject:NusantaraProject/manifest/13/local_nad.xml .repo/local_manifests -P
+    time rclone copy znxtproject:ccache/$ROM_PROJECT/.repo.tar.zst ~/rom -P
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
     cd hardware/nad/interfaces
     git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
@@ -50,8 +51,8 @@ build () {
 compile () {
     sync
     echo "done."
-    get_repo
-    #build
+    #get_repo
+    build
 }
 
 push_kernel () {
@@ -76,9 +77,9 @@ push_vendor () {
 
 cd ~/rom
 ls -lh
-compile #&
+compile &
 #sleep 60m
-#sleep 114m
+sleep 114m
 #kill %1
 #push_kernel
 #push_device

@@ -25,17 +25,17 @@ task:
 
   Download_background_script:
       #- time rclone copy znxtproject:ccache/$ROM_PROJECT/ccache.tar.gz ~ -P
-      #- time rclone copy znxtproject:ccache/$ROM_PROJECT/ccache.tar.zst ~ -P
-      #- ./setup.sh
+      - time rclone copy znxtproject:ccache/$ROM_PROJECT/ccache.tar.zst ~ -P
+      - ./setup.sh
 
   Out_background_script:
-      - cd ~/rom
+      #- cd ~/rom
       #- time rclone copy znxtproject:ccache/$ROM_PROJECT/out.tar.zst ~/rom -P
       #- time tar -xaf out.tar.zst
       #- time rm -rf out.tar.zst
 
   Retry_background_script:
-      #- ./retry.sh
+      - ./retry.sh
 
   Build_script:
       - ./repo.sh
