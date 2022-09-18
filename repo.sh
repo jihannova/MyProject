@@ -6,8 +6,8 @@ sync () {
     #rclone copy znxtproject:NusantaraProject/manifest/13/nusantara.xml .repo/manifests/snippets -P
     #rclone copy znxtproject:NusantaraProject/manifest/13/local_nad.xml .repo/local_manifests -P
     time rclone copy znxtproject:ccache/$ROM_PROJECT/.repo.tar.zst ~/rom -P
-    time tar -xaf *.tar.zst
-    time rm -rf *.tar.zst
+    time tar -xaf .repo.tar.zst
+    time rm -rf .repo.tar.zst
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
     cd hardware/nad/interfaces
     git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
