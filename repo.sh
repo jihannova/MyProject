@@ -10,6 +10,19 @@ sync () {
     git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
 }
 
+com () {
+    #tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
+    tar "-I zstd -1 -T2" -cf $1.tar.zst $1
+}
+
+get_repo () {
+  cd ~/rom
+  time com .repo 1
+  time rclone copy .repo.tar.* znxtproject:ccache/$ROM_PROJECT -P
+  time rm *tar.*
+  ls -lh
+}
+
 build () {
      cd ~/rom
      . build/envsetup.sh
@@ -37,7 +50,8 @@ build () {
 compile () {
     sync
     echo "done."
-    build
+    get_repo
+    #build
 }
 
 push_kernel () {
@@ -62,10 +76,10 @@ push_vendor () {
 
 cd ~/rom
 ls -lh
-compile &
+compile #&
 #sleep 60m
-sleep 114m
-kill %1
+#sleep 114m
+#kill %1
 #push_kernel
 #push_device
 #push_yoshino
