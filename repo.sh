@@ -9,8 +9,6 @@ sync () {
     time tar -xaf .repo.tar.zst
     time rm -rf .repo.tar.zst
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
-    cd hardware/nad/interfaces
-    git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
 }
 
 com () {
@@ -43,11 +41,11 @@ build () {
      export NAD_BUILD_TYPE=OFFICIAL
      export USE_PIXEL_CHARGING=true
      lunch nad_maple_dsds-user
-    #make sepolicy -j24
+    make sepolicy -j24
     #make bootimage -j24
     #make systemimage &
     #make installclean
-    mka nad -j30
+    #mka nad -j30
 }
 
 compile () {
@@ -79,8 +77,8 @@ push_vendor () {
 
 cd ~/rom
 ls -lh
-compile &
-sleep 60m
+compile #&
+#sleep 60m
 #sleep 114m
 #kill %1
 #push_kernel
