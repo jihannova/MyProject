@@ -20,7 +20,7 @@ get_repo () {
   cd ~/rom
   time com .repo 1
   time rclone copy .repo.tar.* znxtproject:ccache/$ROM_PROJECT -P
-  time rm *tar.*
+  time rm .repo.tar.*
   ls -lh
 }
 
@@ -41,11 +41,12 @@ build () {
      export NAD_BUILD_TYPE=OFFICIAL
      export USE_PIXEL_CHARGING=true
      lunch nad_maple_dsds-user
-    #make sepolicy -j24
-    #make bootimage -j24
-    make systemimage -j8
+    #make sepolicy -j8
+    make bootimage -j8
+    #make systemimage -j8
+    make vendorimage -j8
     #make installclean
-    #mka nad -j30
+    #mka nad -j8
 }
 
 compile () {
