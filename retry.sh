@@ -33,8 +33,8 @@ retry_event() {
 }
 
 cd ~/rom
-#sleep 65m
-sleep 118m
+sleep 59m
+#sleep 118m
 rm ~/.git-credentials ~/.gitconfig
 git config --global user.name "jihannova"
 git config --global user.email "jihanazzahranova@gmail.com"
