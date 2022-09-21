@@ -43,9 +43,9 @@ build () {
      lunch nad_maple_dsds-user
     #make sepolicy -j24
     #make bootimage -j24
-    #make systemimage &
+    make systemimage -j8
     #make installclean
-    mka nad -j30
+    #mka nad -j30
 }
 
 compile () {
