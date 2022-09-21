@@ -24,7 +24,7 @@ task:
       - ./env.sh
 
   Download_background_script:
-      #- time rclone copy znxtproject:ccache/$ROM_PROJECT/ccache.tar.gz ~ -P
+      - sleep 5m
       - time rclone copy znxtproject:ccache/$ROM_PROJECT/ccache.tar.zst ~ -P
       - ./setup.sh
 

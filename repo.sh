@@ -9,8 +9,6 @@ sync () {
     time tar -xaf .repo.tar.zst
     time rm -rf .repo.tar.zst
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
-    cd hardware/nad/interfaces
-    git fetch https://github.com/LineageOS/android_hardware_lineage_interfaces lineage-19.1 && git cherry-pick 21e6c8c09692bb9ae21fdc6e4bc1442f6c4cd5d0
 }
 
 com () {
@@ -80,9 +78,9 @@ push_vendor () {
 cd ~/rom
 ls -lh
 compile &
-sleep 60m
-#sleep 114m
-#kill %1
+#sleep 60m
+sleep 114m
+kill %1
 #push_kernel
 #push_device
 #push_yoshino
