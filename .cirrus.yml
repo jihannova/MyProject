@@ -43,11 +43,11 @@ task:
   UploadROM_background_script:
       - cd ~/rom/out/target/product/maple_dsds
       - ls -lh
-      - time rclone copy $(ls *maple*OFFICIAL*.zip) znxtproject:NusantaraProject/maple_dsds -P && time rclone copy $(ls *.md5sum) znxtproject:NusantaraProject/maple_dsds -P && ls -lh
+      #- time rclone copy $(ls *maple*OFFICIAL*.zip) znxtproject:NusantaraProject/maple_dsds -P && time rclone copy $(ls *.md5sum) znxtproject:NusantaraProject/maple_dsds -P && ls -lh
       #- curl -s https://api.telegram.org/$TG_TOKEN/sendMessage -d chat_id=$TG_CHAT_ID -d text="Build $(cd ~/rom/out/target/product/maple_dsds && ls *UNOFFICIAL*.zip) Uploaded Successfully!"
 
   UploadCc_script:
-      - ./build_zip.sh
+      #- ./build_zip.sh
 
   SF_script:
       - cd ~ && rm -rf rom/out/product
