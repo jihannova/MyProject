@@ -2,9 +2,9 @@
     
 sync () {
     cd ~/rom
-    repo init --depth=1 --no-repo-verify -u ${Nusantara} -b 13 -g default,-mips,-darwin,-notdefault
+    repo init --depth=1 --no-repo-verify -u ${Nusantara} -b 13-wip -g default,-mips,-darwin,-notdefault
     rclone copy znxtproject:NusantaraProject/manifest/13/nusantara.xml .repo/manifests/snippets -P
-    rclone copy znxtproject:NusantaraProject/manifest/13/local_nad.xml .repo/local_manifests -P
+    rclone copy znxtproject:NusantaraProject/manifest/13-wip/local_nad.xml .repo/local_manifests -P
     #time rclone copy znxtproject:ccache/$ROM_PROJECT/.repo.tar.zst ~/rom -P
     #time tar -xaf .repo.tar.zst
     #time rm -rf .repo.tar.zst
@@ -19,7 +19,7 @@ com () {
 
 get_repo () {
   cd ~/rom
-  time com .repo 1
+  time com .repo 9
   time rclone copy .repo.tar.* znxtproject:ccache/$ROM_PROJECT -P
   time rm *tar.*
   ls -lh
