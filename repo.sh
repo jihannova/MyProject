@@ -5,14 +5,14 @@ sync () {
     #repo init --depth=1 --no-repo-verify -u ${Nusantara} -b 13 -g default,-mips,-darwin,-notdefault
     #rclone copy znxtproject:NusantaraProject/manifest/13/nusantara.xml .repo/manifests/snippets -P
     #rclone copy znxtproject:NusantaraProject/manifest/13/local_nad.xml .repo/local_manifests -P
-    time rclone copy znxtproject:ccache/nad-13/.repo.tar.zst ~/rom -P
+    time rclone copy znxtproject:ccache/$ROM_PROJECT/.repo.tar.zst ~/rom -P
     time tar -xaf .repo.tar.zst
     time rm -rf .repo.tar.zst
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
     rclone copy znxtproject:NusantaraProject/test/device_framework_manifest.xml device/sony/yoshino-common -P
     rclone copy znxtproject:NusantaraProject/test/device_framework_manifest_dsds.xml device/sony/yoshino-common -P
     rclone copy znxtproject:NusantaraProject/test/hardware.mk device/sony/yoshino-common/platform -P
-    cd fram*/base && git fetch nad 13-wip && git checkout FETCH_HEAD && git fetch nad 13-joko && git cherry-pick  014f85831fd77288bdbc2c0e27bf311e4701e58d && rclone copy znxtproject:NusantaraProject/test/fgs_footer.xml packages/SystemUI/res-keyguard/layout -P && git add . && git commit --amend --no-edit && git cherry-pick 1bc14be34629bcd07fb0f9b6e8ed67bc0303de58^..5227136a015979b9e56869f663d83af4e8f28abc && git fetch nad 13-arif && git cherry-pick d2a9d7636319f0720a8528a4659a5ccbd91aafb5 && cd ../av && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Launcher3 && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/NusantaraWings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Settings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/vendor/themes && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom && rm -rf hardware/xiaomi
+    cd fram*/base && git fetch nad 13-joko && git cherry-pick  014f85831fd77288bdbc2c0e27bf311e4701e58d && rclone copy znxtproject:NusantaraProject/test/fgs_footer.xml packages/SystemUI/res-keyguard/layout -P && git add . && git commit --amend --no-edit && git cherry-pick 1bc14be34629bcd07fb0f9b6e8ed67bc0303de58^..5227136a015979b9e56869f663d83af4e8f28abc && git fetch nad 13-arif && git cherry-pick d2a9d7636319f0720a8528a4659a5ccbd91aafb5 && cd ~/rom && rm -rf hardware/xiaomi
 }
 
 com () {
