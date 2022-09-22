@@ -12,7 +12,7 @@ sync () {
     rclone copy znxtproject:NusantaraProject/test/device_framework_manifest.xml device/sony/yoshino-common -P
     rclone copy znxtproject:NusantaraProject/test/device_framework_manifest_dsds.xml device/sony/yoshino-common -P
     rclone copy znxtproject:NusantaraProject/test/hardware.mk device/sony/yoshino-common/platform -P
-    cd fram*/base && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ../av && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Launcher3 && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/NusantaraWings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Settings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/vendor/themes && git fetch nad 13-wip && git checkout FETCH_HEAD
+    cd fram*/base && git fetch nad 13-wip && git checkout FETCH_HEAD && git fetch nad 13-joko && git cherry-pick 191d29c1eac827def59041027f84966e72ea9cdf 1bc14be34629bcd07fb0f9b6e8ed67bc0303de58^..5227136a015979b9e56869f663d83af4e8f28abc && git fetch nad 13-arif git cherry-pick d2a9d7636319f0720a8528a4659a5ccbd91aafb5 && git cherry-pick 014f85831fd77288bdbc2c0e27bf311e4701e58d && rclone copy znxtproject:NusantaraProject/test/fgs_footer.xml packages/SystemUI/res-keyguard/layout -P && git add . && git commit --amend --no-edit && cd ../av && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Launcher3 && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/NusantaraWings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/packages/apps/Settings && git fetch nad 13-wip && git checkout FETCH_HEAD && cd ~/rom/vendor/themes && git fetch nad 13-wip && git checkout FETCH_HEAD
 }
 
 com () {
