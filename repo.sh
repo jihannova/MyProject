@@ -44,9 +44,9 @@ build () {
     #make sepolicy -j8
     make bootimage -j8
     #make systemimage -j8
-    make vendorimage -j8
+    #make vendorimage -j8
     #make installclean
-    #mka nad -j8
+    mka nad -j8
 }
 
 compile () {
@@ -78,10 +78,10 @@ push_vendor () {
 
 cd ~/rom
 ls -lh
-compile #&
+compile &
 #sleep 55m
-#sleep 114m
-#kill %1
+sleep 114m
+kill %1
 #push_kernel
 #push_device
 #push_yoshino
