@@ -19,7 +19,7 @@ com () {
 
 get_repo () {
   cd ~/rom
-  time com .repo 9
+  time com .repo 1
   time rclone copy .repo.tar.* znxtproject:ccache/$ROM_PROJECT -P
   time rm *tar.*
   ls -lh
