@@ -42,7 +42,7 @@ build () {
      export USE_PIXEL_CHARGING=true
      lunch nad_maple_dsds-user
     #make sepolicy -j8
-    make bootimage -j8
+    #make bootimage -j8
     #make systemimage -j8
     #make vendorimage -j8
     #make installclean
