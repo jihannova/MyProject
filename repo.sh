@@ -8,6 +8,7 @@ sync () {
     #time rclone copy znxtproject:ccache/$ROM_PROJECT/.repo.tar.zst ~/rom -P
     #time tar -xaf .repo.tar.zst
     #time rm -rf .repo.tar.zst
+    cd .repo/manifests && git add . && git commit -m 'maple' && git branch -m maple && cd ../..
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j20
 }
